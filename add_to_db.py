@@ -110,31 +110,9 @@ class Database:
         self.vendor_phone_e.delete(0, END)
         self.id_e.delete(0, END)
     
-    # Delete data from the database
-        self.clear_database()
-
-    def clear_database(self):
-    # Get the ID from the ID entry field
-        id_to_delete = self.id_e.get()
     
-    # Check if ID is provided and valid
-        if id_to_delete:
-            try:
-            # Convert ID to integer
-                id_to_delete = int(id_to_delete)
-            
-            # Delete data from the database
-                c.execute("DELETE FROM inventory WHERE id = ?", (id_to_delete,))
-                conn.commit()
-            
-            # Update the text box
-                self.tBox.insert(END, f"\n\nDeleted data with ID {id_to_delete} from the database.")
-            
-                tkinter.messagebox.showinfo("Success", f"Data with ID {id_to_delete} deleted from the database.")
-            except ValueError:
-                tkinter.messagebox.showinfo("Error", "Please enter a valid ID to delete data.")
-            else:
-                tkinter.messagebox.showinfo("Error", "Please enter an ID to delete data.")
+
+    
 
             
              
